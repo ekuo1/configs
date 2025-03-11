@@ -39,7 +39,8 @@
       ${pkgs.git}/bin/git reset --hard origin/main  # Overwrites all local changes
     else
       cd /etc/nixos
-      ${pkgs.git}/bin/git pull origin main
+      ${pkgs.git}/bin/git fetch origin main
+      ${pkgs.git}/bin/git reset --hard origin/main  # Overwrites all local changes
     fi
   '';
 
