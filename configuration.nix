@@ -24,20 +24,24 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  system.activationScripts.gitRepoSetup = ''
-    if [ ! -d /etc/nixos/.git ]; then
-      git clone https://github.com/ekuo1/configs.git /etc/nixos
-    else
-      cd /etc/nixos
-      git pull origin main
-    fi
-  '';
-
   environment.systemPackages = with pkgs; [
     wget
     git
     vim
   ];
+
+  system.activationScripts.gitRepoSetup = ''
+    if [ ! -d /etc/nixos/.git ]; then
+      cd /etc/nixos
+      ${pkgs.git}/bin/git init
+      ${pkgs.git}/bin/git remote add origin https://github.com/ekuo1/configs.git
+      ${pkgs.git}/bin/git fetch origin main
+      ${pkgs.git}/bin/git reset --hard origin/main  # Overwrites all local changes
+    else
+      cd /etc/nixos
+      ${pkgs.git}/bin/git pull origin main
+    fi
+  '';
 
   programs.nix-ld = {
     enable = true;
