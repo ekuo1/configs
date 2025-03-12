@@ -9,6 +9,7 @@
     neofetch
     zsh
     tmux
+    vim
   ];
 
   # Enable Zsh

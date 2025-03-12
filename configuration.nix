@@ -19,6 +19,7 @@
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
+  home-manager.users.nixos = import /etc/nixos/home.nix;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -31,7 +32,6 @@
   environment.systemPackages = with pkgs; [
     wget
     git
-    vim
   ];
 
   system.activationScripts.gitRepoSetup = ''
@@ -53,6 +53,6 @@
     package = pkgs.nix-ld-rs; # only for NixOS 24.05
   };
 
-  home-manager.users.nixos = import /etc/nixos/home.nix;
+
 
 }
