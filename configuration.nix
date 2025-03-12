@@ -34,25 +34,15 @@
     git
   ];
 
-  system.activationScripts.gitRepoSetup = ''
-    if [ ! -d /etc/nixos/.git ]; then
-      cd /etc/nixos
-      ${pkgs.git}/bin/git init --initial-branch=main
-      ${pkgs.git}/bin/git remote add origin https://github.com/ekuo1/configs.git
-      ${pkgs.git}/bin/git fetch origin main
-      ${pkgs.git}/bin/git reset --hard origin/main  # Overwrites all local changes
-    else
-      cd /etc/nixos
-      ${pkgs.git}/bin/git fetch origin main
-      ${pkgs.git}/bin/git reset --hard origin/main  # Overwrites all local changes
-    fi
+  system.activationScripts.gitRepoSync = ''
+    cd /etc/nixos
+    ${pkgs.git}/bin/git fetch origin main
+    ${pkgs.git}/bin/git reset --hard origin/main  # Overwrites all local changes
   '';
 
   programs.nix-ld = {
     enable = true;
     package = pkgs.nix-ld-rs; # only for NixOS 24.05
   };
-
-
 
 }
