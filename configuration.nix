@@ -33,8 +33,7 @@
   system.activationScripts.gitRepoSetup = ''
     if [ ! -d /etc/nixos/.git ]; then
       cd /etc/nixos
-      ${pkgs.git}/bin/git config --global init.defaultBranch main
-      ${pkgs.git}/bin/git init
+      ${pkgs.git}/bin/git init --initial-branch=main
       ${pkgs.git}/bin/git remote add origin https://github.com/ekuo1/configs.git
       ${pkgs.git}/bin/git fetch origin main
       ${pkgs.git}/bin/git reset --hard origin/main  # Overwrites all local changes
