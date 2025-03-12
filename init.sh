@@ -2,10 +2,6 @@
 
 set -e  # Exit immediately if a command fails
 
-# Update NixOS
-sudo nix-channel --update
-sudo nixos-rebuild switch
-
 # Run all git commands inside a nix-shell
 nix-shell -p git --run "
     # Navigate to /etc/nixos
@@ -24,6 +20,8 @@ nix-shell -p git --run "
     echo 'Resetting local files to match remote...'
     sudo git reset --hard origin/main  # WARNING: This overwrites local changes!
 "
+mkdir -p ~/.vim/colors
+curl -o ~/.vim/colors/gruvbox.vim https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim
 
 # Add and update the Home Manager channel. Version should match nixos version.
 echo "Adding Home Manager channel..."

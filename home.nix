@@ -27,6 +27,7 @@
       set noerrorbells
       set belloff=all
       set pastetoggle=<F3>
+      colorscheme gruvbox
     '';
   };
 
