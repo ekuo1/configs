@@ -11,10 +11,14 @@
   imports = [
     # include NixOS-WSL modules
     <nixos-wsl/modules>
+    <home-manager/nixos>
   ];
 
   wsl.enable = true;
   wsl.defaultUser = "nixos";
+
+  home-manager.useUserPackages = true;
+  home-manager.useGlobalPkgs = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -48,5 +52,7 @@
     enable = true;
     package = pkgs.nix-ld-rs; # only for NixOS 24.05
   };
+
+  home-manager.users.nixos = import /etc/nixos/home.nix;
 
 }
