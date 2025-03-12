@@ -8,7 +8,6 @@
   home.packages = with pkgs; [
     zsh
     tmux
-    vim
   ];
 
   # Enable Zsh
