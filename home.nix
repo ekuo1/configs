@@ -21,18 +21,12 @@
       set tabstop=2
       set expandtab
       set shiftwidth=2
-
-      " Color scheme
       color koehler
-
-      " Bell settings
       set visualbell
       set t_vb=
       set vb t_vb=
       set noerrorbells
       set belloff=all
-
-      " Paste toggle
       set pastetoggle=<F3>
     '';
   };
