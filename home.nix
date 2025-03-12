@@ -7,6 +7,9 @@
   # List of packages to install for this user
   home.packages = with pkgs; [
     tmux
+    python3
+    python3Packages.pip
+    python3Packages.virtualenv
   ];
 
   # Enable Zsh
