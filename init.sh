@@ -32,6 +32,4 @@ sudo nix-channel --update
 echo "Rebuilding NixOS..."
 sudo nixos-rebuild switch
 
-home-manager switch
-
 echo "Setup complete!"
