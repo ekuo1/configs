@@ -14,10 +14,6 @@
   # Enable Zsh
   programs.zsh.enable = true;
 
-  programs.vim = {
-    enable = true;
-  };
-
   # Set the Home Manager state version
   home.stateVersion = "24.11";  # Adjust to your NixOS version
 }
