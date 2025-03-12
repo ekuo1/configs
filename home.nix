@@ -40,5 +40,5 @@
   };
 
   # Set the Home Manager state version
-  home.stateVersion = "24.11";  # Adjust to your NixOS version
+  home.stateVersion = "23.11";  # Adjust to your NixOS version
 }
