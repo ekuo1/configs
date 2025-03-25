@@ -6,3 +6,5 @@
 1. Copy the contents of the `init.sh` script into the script
 1. `chmod +x init.sh`
 1. `bash init.sh`. It should prompt you for a password.
+2. sudo nixos-rebuild switch
+3. currently need to run this twice
