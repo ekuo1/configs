@@ -10,6 +10,9 @@
     python3
     python3Packages.pip
     python3Packages.virtualenv
+    terraform_1_10
+    tflint
+    unzip
   ];
 
   # Enable Zsh
