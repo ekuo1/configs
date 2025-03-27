@@ -7,12 +7,17 @@
   # List of packages to install for this user
   home.packages = with pkgs; [
     tmux
-    python3
-    python3Packages.pip
-    python3Packages.virtualenv
+    (python3.withPackages (ps: with ps; [
+      pip
+      virtualenv
+      numpy
+      requests
+      yaml
+    ]))
     tenv
     tflint
     unzip
+    check-jsonschema
   ];
 
   # Enable Zsh
