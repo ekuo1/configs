@@ -12,7 +12,7 @@
       virtualenv
       numpy
       requests
-      yaml
+      pyyaml
     ]))
     tenv
     tflint
