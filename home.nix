@@ -1,9 +1,5 @@
 { config, pkgs, ... }:
 
-{
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
-
 let
   custom_pkgs = import (builtins.fetchGit {
     name = "my-old-revision";
@@ -12,6 +8,9 @@ let
     rev = "9957cd48326fe8dbd52fdc50dd2502307f188b0d";
   }) {};
 in {
+  home.username = "nixos";
+  home.homeDirectory = "/home/nixos";
+
   # List of packages to install for this user
   home.packages = [
     pkgs.tmux
@@ -27,7 +26,6 @@ in {
     pkgs.unzip
     custom_pkgs.check-jsonschema
   ];
-}
 
   # Enable Zsh
   programs.zsh.enable = true;
