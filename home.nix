@@ -4,21 +4,30 @@
   home.username = "nixos";
   home.homeDirectory = "/home/nixos";
 
+let
+  custom_pkgs = import (builtins.fetchGit {
+    name = "my-old-revision";
+    url = "https://github.com/NixOS/nixpkgs/";
+    ref = "refs/heads/nixpkgs-unstable";
+    rev = "9957cd48326fe8dbd52fdc50dd2502307f188b0d";
+  }) {};
+in {
   # List of packages to install for this user
-  home.packages = with pkgs; [
-    tmux
-    (python3.withPackages (ps: with ps; [
+  home.packages = [
+    pkgs.tmux
+    (pkgs.python3.withPackages (ps: with ps; [
       pip
       virtualenv
       numpy
       requests
       pyyaml
     ]))
-    tenv
-    tflint
-    unzip
-    check-jsonschema
+    pkgs.tenv
+    pkgs.tflint
+    pkgs.unzip
+    custom_pkgs.check-jsonschema
   ];
+}
 
   # Enable Zsh
   programs.zsh.enable = true;
@@ -45,4 +54,7 @@
 
   # Set the Home Manager state version
   home.stateVersion = "24.11";  # Adjust to your NixOS version
+  home.sessionVariables = {
+    TFENV_TERRAFORM_VERSION = "1.10.5";
+  };
 }
