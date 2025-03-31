@@ -58,7 +58,7 @@ in {
       alias nixupdate='cd /etc/nixos && sudo git fetch origin main && sudo git reset origin/main --hard && nixos-rebuild switch'
       alias starthugo='cd ~'
     '';
-  }
+  };
 
   # Set the Home Manager state version
   home.stateVersion = "24.11";  # Adjust to your NixOS version
