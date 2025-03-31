@@ -55,7 +55,8 @@ in {
   programs.bash= {
     enable = truel
     bashrcExtra = = ''
-      alias nixupdate= cd /etc/nixos && sudo git fetch origin main && sudo git reset origin/main --hard && nixos-rebuild switch
+      alias nixupdate='cd /etc/nixos && sudo git fetch origin main && sudo git reset origin/main --hard && nixos-rebuild switch'
+      alias starthugo='cd ~'
     '';
   }
 
