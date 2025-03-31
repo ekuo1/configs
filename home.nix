@@ -56,7 +56,7 @@ in {
     enable = true;
     bashrcExtra = ''
       alias nixupdate='cd /etc/nixos && sudo git fetch origin main && sudo git reset origin/main --hard && sudo nixos-rebuild switch'
-      alias starthugo='cd ~'
+      alias starthugo='cd ~/bedrock/lab3/bedrock && hugo server -s $PWD/platform-devops/container-images/docs-site/website' 
     '';
   };
 
