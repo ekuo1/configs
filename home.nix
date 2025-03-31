@@ -24,7 +24,9 @@ in {
     pkgs.tenv
     pkgs.tflint
     pkgs.unzip
+    pkgs.go
     custom_pkgs.check-jsonschema
+    custom_pkgs.hugo
   ];
 
   # Enable Zsh
@@ -49,6 +51,13 @@ in {
       set bg=dark
     '';
   };
+
+  programs.bash= {
+    enable = truel
+    bashrcExtra = = ''
+      alias nixupdate= cd /etc/nixos && sudo git fetch origin main && sudo git reset origin/main --hard && nixos-rebuild switch
+    '';
+  }
 
   # Set the Home Manager state version
   home.stateVersion = "24.11";  # Adjust to your NixOS version
