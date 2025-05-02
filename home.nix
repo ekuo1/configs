@@ -25,6 +25,7 @@ in {
     pkgs.tflint
     pkgs.unzip
     pkgs.go
+    pkgs.powershell
     custom_pkgs.check-jsonschema
     custom_pkgs.hugo
   ];
