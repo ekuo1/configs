@@ -66,4 +66,11 @@ in {
   home.sessionVariables = {
     TFENV_TERRAFORM_VERSION = "1.10.5";
   };
+
+  home.file.".config/powershell/profile.ps1".text = ''
+    if (-not (Get-Module -ListAvailable -Name Az)) {
+        Install-Module -Name Az -Scope CurrentUser -Force
+    }
+  '';
+
 }
