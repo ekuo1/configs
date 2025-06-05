@@ -22,6 +22,7 @@ in {
       pyyaml
     ]))
     pkgs.tenv
+    pkgs.jq
     pkgs.tflint
     pkgs.unzip
     pkgs.go
