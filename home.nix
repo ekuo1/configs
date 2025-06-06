@@ -23,6 +23,7 @@ in {
     ]))
     pkgs.tenv
     pkgs.jq
+    pkgs.gh
     pkgs.tflint
     pkgs.unzip
     pkgs.go
