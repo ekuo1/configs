@@ -67,6 +67,7 @@ in {
   home.stateVersion = "24.11";  # Adjust to your NixOS version
   home.sessionVariables = {
     TFENV_TERRAFORM_VERSION = "1.12.2";
+    TENV_AUTO_INSTALL=true
   };
 
   home.file.".config/powershell/profile.ps1".text = ''
