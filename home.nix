@@ -66,7 +66,7 @@ in {
   # Set the Home Manager state version
   home.stateVersion = "24.11";  # Adjust to your NixOS version
   home.sessionVariables = {
-    TFENV_TERRAFORM_VERSION = "1.10.5";
+    TFENV_TERRAFORM_VERSION = "1.12.2";
   };
 
   home.file.".config/powershell/profile.ps1".text = ''
