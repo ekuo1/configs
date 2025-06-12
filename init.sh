@@ -2,6 +2,9 @@
 
 set -e  # Exit immediately if a command fails
 
+# Save the current working directory
+ORIGINAL_DIR=$(pwd)
+
 # Run all git commands inside a nix-shell
 nix-shell -p git --run "
     # Navigate to /etc/nixos
@@ -31,5 +34,8 @@ sudo nix-channel --update
 # Rebuild NixOS
 echo "Rebuilding NixOS..."
 sudo nixos-rebuild switch
+
+# Return to original directory
+cd "$ORIGINAL_DIR"
 
 echo "Setup complete!"
