@@ -11,6 +11,9 @@ in {
   home.username = "nixos";
   home.homeDirectory = "/home/nixos";
 
+  # packer is not free
+  nixpkgs.config.allowUnfree = true;
+
   # List of packages to install for this user
   home.packages = [
     pkgs.tmux
