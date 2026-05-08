@@ -28,6 +28,7 @@ in {
     pkgs.unzip
     pkgs.go
     pkgs.powershell
+    pkgs.packer
     custom_pkgs.check-jsonschema
     custom_pkgs.hugo
   ];
