@@ -45,4 +45,6 @@
     package = pkgs.nix-ld-rs; # only for NixOS 24.05
   };
 
+  nixpkgs.config.allowUnfree = true;
+
 }
